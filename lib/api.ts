@@ -1,11 +1,14 @@
 import axios, { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import type { ApiResponse, AuthResponse } from './types';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/pos-api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://renata-probeable-iesha.ngrok-free.dev/pos-api';
 
 const api = axios.create({
     baseURL: API_BASE_URL,
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+        'Content-Type': 'application/json',
+        'ngrok-skip-browser-warning': 'true',
+    },
     timeout: 15000,
 });
 
